@@ -1,8 +1,138 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 /* font-family: 'Montserrat', sans-serif; */
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(to right, #ea1d6f 0%, #eb466b 100%);
+  display: flex;
+  min-height: 100vh;
+}
+
+input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  width: 100%;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #666;
+  color: #ddd;
+  font-size: 14px;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color .2s;
+
+}
+
+input:focus {
+  border-bottom-color: #ddd;
+}
+
+button {
+  margin-top: 24px;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  /* color: #ea1d6f; */
+  color: #ddd;
+
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.last-wrp {
+  display: flex;
+  padding: 10px;
+  /* flex: 0 1 700px; */
+  margin: auto;
+  /* padding: 10px; */
+}
+
+.screen {
+  width: 700px;
+  margin-left: 100px;
+
+}
+
+.screen__title {
+  color: #ddd;
+}
+
+.screen__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #4d4d4f;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.header-button__btn {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+  border-radius: 8px;
+  background: white;
+}
+
+.header-button--close {
+  background: #ed1c6f;
+}
+
+.header-button--maximize {
+  background: #e8e925;
+}
+
+.header-button--minimize {
+  background: #74c54f;
+}
+
+.header-dots {
+  display: flex;
+}
+
+.header-dots__ellipsis {
+  width: 3px;
+  height: 3px;
+  margin-left: 2px;
+  border-radius: 8px;
+  background: #999;
+}
+
+.screen__body {
+  /* position: relative; */
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background: #3e3e3e;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  /* height: 100px; */
+}
+
+
+
+
+.form-wrp {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.form-wrp input {
+  max-width: 75%;
+  margin: 0 auto;
+}
+.timer__count {
+  font-size: 40px;
+  color: #ddd;
+}

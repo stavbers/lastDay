@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,25 +8,47 @@
   <title>LastDay</title>
   <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
   <div class="last-wrp">
     <div class="last-timer timer">
-      <h2 class="timer__title"></h2>
-      <span class="timer__count"></span>
+      <!-- <h2 class="timer__title">just do it </h2> -->
+      <span class="timer__count">00 00 00 00</span>
       <form>
         <input class="timer__inp" type="text">
-        <button class="timer__subm"></button>
+        <button class="timer__subm">subm</button>
       </form>
     </div>
-    <div class="last-form ">
-      <form>
-        <input type="text">
-        <input type="text">
-        <button class="last-form__btn"></button>
-      </form>
+    <div class="screen">
+      <div class="screen__header ">
+        <div class="screen__header-button header-button">
+          <div class="header-button__btn header-button--close"></div>
+          <div class="header-button__btn header-button--maximize"></div>
+          <div class="header-button__btn header-button--minimize"></div>
+        </div>
+        <h2 class="screen__title">Lorem, ipsum dolor.</h2>
+        <div class="screen__header-dots header-dots">
+          <div class="header-dots__ellipsis"></div>
+          <div class="header-dots__ellipsis"></div>
+          <div class="header-dots__ellipsis"></div>
+        </div>
+      </div>
+      <div class="screen__body">
+        <form>
+          <div class="form-wrp">
+            <input class="last-date" type="text">
+            <input class="now-date" type="text">
+            <button class="date__btn">subm</button>
+          </div>
+        </form>
+      </div>
+
+
+
       </form>
     </div>
   </div>
   <script src="index.js"></script>
 </body>
+
 </html>
