@@ -186,6 +186,7 @@ function hideTab(){
   })
 }
 function showTab(e, index){
+  console.log(e.target)
   e.target.classList.add('tab_active');
   panel[index].classList.add('panel_active')
 }
