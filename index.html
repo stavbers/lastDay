@@ -26,7 +26,11 @@
           <div class="header-button__btn header-button--maximize"></div>
           <div class="header-button__btn header-button--minimize"></div>
         </div>
-        <h2 class="screen__title">Lorem, ipsum dolor.</h2>
+        <div class='tabs'>
+          <div class='tab tab_active'>Tab 1</div>
+          <div class='tab'>Tab 2</div>
+          <div class='tab'>Tab 3</div>
+        </div>
         <div class="screen__header-dots header-dots">
           <div class="header-dots__ellipsis"></div>
           <div class="header-dots__ellipsis"></div>
@@ -34,20 +38,34 @@
         </div>
       </div>
       <div class="screen__body">
-        <form>
-          <div class="form-wrp">
-            <input class="last-date" type="text">
-            <input class="now-date" type="text">
-            <button class="date__btn">subm</button>
+
+        
+
+          <div class='panels'>
+            <div class='panel panel_active'>Panel 1</div>
+            <div class='panel'>Panel 2</div>
+            <div class='panel'>Panel 3</div>
           </div>
-        </form>
+       
+
+
+
+          <div class="form-wrp">
+            <input type="date"  id="last-date">
+            <input type="date"  id="now-date">
+            <button class="date__btn">subm</button>
+            <div class="out"></div>
+          </div>
+      
       </div>
 
 
 
-      </form>
+      
+
     </div>
   </div>
+ <script src="axios.min.js"></script>
   <script src="index.js"></script>
 </body>
 

@@ -70,7 +70,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px 20px 0px;
   background: #4d4d4f;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
@@ -78,24 +78,98 @@ button {
 
 .header-button__btn {
   display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 3px;
+  width: 12px;
+  height: 12px;
+  margin-right: 7px;
   border-radius: 8px;
   background: white;
 }
-
-.header-button--close {
-  background: #ed1c6f;
+.header-button:hover .header-button--close::before{
+display: block;
 }
+.header-button:hover .header-button--close::after {
+  display: block;
+}
+.header-button:hover .header-button--maximize::before{
+  display: block;
+}
+.header-button:hover .header-button--minimize::before {
+  display: block;
+}.header-button:hover .header-button--minimize::after {
+  display: block;
+}
+.header-button--close {
+  position: relative;
+  background: rgb(223, 95, 87);
+}
+.header-button--close::before, .header-button--close::after {
+  position: absolute;
+  content: '';
+  display: none;
+  top: 4px;
+  left: 2.4px;
+  width: 8px;
+  height: 1px;
+  border-bottom: 1.5px solid rgba(131, 1, 0, 0.7);
+}
+.header-button--close::before{
+  transform: rotate(45deg);
+}
+.header-button--close::after{
+  transform: rotate(-45deg);
+}
+
 
 .header-button--maximize {
-  background: #e8e925;
+  background: rgb(237, 187, 63);
+  position: relative;
 }
 
-.header-button--minimize {
-  background: #74c54f;
+.header-button--maximize::before {
+  position: absolute;
+  content: '';
+
+  display: none;
+  width: 7.5px;
+  height: 1px;
+  top: 4px;
+  left: 2.65px;
+  border-bottom: 1.9px solid #a16f1f;
 }
+
+
+.header-button--minimize {
+  background: rgb(117, 198, 77);
+  position: relative;
+}
+
+.header-button--minimize::before {
+  position: absolute;
+  content: '';
+  display: none;
+  top: 4px;
+  left: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 5px 5px;
+  border-color: transparent transparent #386214 transparent;
+}
+
+.header-button--minimize::after {
+  position: absolute;
+  content: '';
+  display: none;
+  bottom: 4px;
+  right: 5px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 0;
+  border-color: #386214 transparent transparent transparent;
+}
+
+
 
 .header-dots {
   display: flex;
@@ -110,13 +184,11 @@ button {
 }
 
 .screen__body {
-  /* position: relative; */
   padding-top: 50px;
   padding-bottom: 50px;
   background: #3e3e3e;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  /* height: 100px; */
 }
 
 
@@ -128,11 +200,52 @@ button {
   padding-left: 25px;
   padding-right: 25px;
 }
+
 .form-wrp input {
   max-width: 75%;
   margin: 0 auto;
 }
+
 .timer__count {
   font-size: 40px;
   color: #ddd;
+}
+
+.screen__header-button {
+  display: flex;
+  margin-right: 15px;
+}
+
+.tabs {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  height: 36px;
+  line-height: 36px;
+}
+
+.tabs .tab {
+  /* float: left; */
+
+  background: white;
+  color: #777777;
+  /* height: 31px; */
+  /* margin: 2px 8px 0; */
+  padding: 0 8px;
+  cursor: pointer;
+}
+
+.tabs .tab_active {
+  color: #dd4b39;
+  /* border-bottom: 3px solid #dd4b39; */
+}
+
+.panels .panel {
+  padding: 20px 10px;
+  display: none;
+  border: 2px solid #dbed1c;
+}
+
+.panels .panel_active {
+  display: block;
 }
