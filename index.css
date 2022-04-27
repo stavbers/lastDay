@@ -226,7 +226,7 @@ display: block;
 }
 
 .tabs .tab {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   vertical-align: middle;
   background: rgb(97 94 94);
@@ -251,15 +251,20 @@ margin-right: 5px;
 .tab .tab__close {
   display: block;
   position: relative;
-  height: 11px;
+  height: 12px;
   padding-right: 15px;
 }
 .tab .tab__close:hover {
   /* background-color: rgb(195, 195, 195); */
   background-color: rgb(195, 195, 195);
-  height: 15px;
-  width: 15px;
+  /* height: 15px; */
+  /* width: 15px; */
+  margin: 0;
   border-radius: 50%;
+  /* position: absolute;               
+  top: 50%;  
+  
+  transform: translate(0, -50%) */
 }
 .tab__close::before, .tab__close::after {
   position: absolute;
@@ -291,3 +296,9 @@ margin-right: 5px;
 .panels .panel_active {
   display: block;
 }
+
+
+/* margin: 0;
+   position: absolute;               
+   top: 50%;                         
+   transform: translate(0, -50%) */

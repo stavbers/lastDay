@@ -166,7 +166,7 @@ console.log(Math.random() * sty.length)
     document.querySelector('.date__btn').addEventListener('click', checkDay);
 
 
-
+// toggle browser panel
 let tabs = document.querySelectorAll('.tab');
 let panel = document.querySelectorAll('.panel');
 
@@ -186,7 +186,139 @@ function hideTab(){
   })
 }
 function showTab(e, index){
-  console.log(e.target)
-  e.target.classList.add('tab_active');
+  e.target.parentNode.classList.add('tab_active');
   panel[index].classList.add('panel_active')
 }
+
+// create todo and engl && favlink
+
+
+
+let inps = document.querySelectorAll('.inp');
+let menuLists = document.querySelectorAll('.menu-list');
+let blocks = document.querySelectorAll('.block');
+let ths;
+let pernt;
+tabs.forEach((item, index)=> {
+    item.addEventListener('click', function(){
+        switchBtn(item, index);
+     });
+});
+
+function switchBtn(item, index){
+    //item нажатая кнопка open/close
+
+    inps.forEach((inp)=> {
+        inp.classList.remove('display');
+    });
+    menuLists.forEach((ul)=> {
+        ul.classList.remove('display');
+    });
+    blocks[index-1].children[1].classList.add('display');
+    blocks[index-1].children[2].classList.add('display');
+    ths = index-1;
+    getBd();
+    closeTabs();
+}
+function closeTabs(){
+    document.addEventListener('keydown', function(e) {
+        if( e.keyCode == 27 ){ // код клавиши Escape, но можно использовать e.key
+            ths.parentNode.children[2].classList.remove('display');
+            ths.parentNode.children[3].classList.remove('display');
+        }
+    });
+    // document.addEventListener( 'click', (e) => {
+    //     let withinBoundaries;
+    //     blocks.forEach((item)=>{
+    //         withinBoundaries = e.composedPath().includes(item);
+    //     });
+    //     console.log(withinBoundaries)
+    //     if (! withinBoundaries ) {
+    //         ths.parentNode.children[2].classList.remove('display');
+    //         ths.parentNode.children[3].classList.remove('display');
+    //     }
+    // })
+}
+
+// function switchBtn(item){
+//     item.parentNode.children[2].classList.toggle('display');
+//     item.parentNode.children[3].classList.toggle('display');
+//     ths = item;
+//     getBd()
+// }
+
+inps.forEach((item)=> {
+    // console.log(item.value)
+    item.addEventListener('keypress',getWord);
+});
+// inp.addEventListener('keypress', getWord);
+function getWord(event){
+    let t = event.which;
+    if(t == 13){
+      // blocks[ths]
+      console.log(this)
+      // console.log(ths)
+      //   ths = this;
+        createElemts(this.value, this);
+        // console.log(this)
+        this.value = '';
+    }
+}
+
+function createElemts(word, parent){
+    let wd = document.createElement('li');
+    wd.classList.add('list-item');
+    wd.innerHTML = `<span></span>${word}`;
+    parent.parentNode.children[2].append(wd)
+    adBd();
+    removeTodo()
+    checkToDo()
+}
+
+function removeTodo(){
+    let trash = document.querySelectorAll('.list-item > span');
+    trash.forEach((item)=> {
+        item.addEventListener('click', function(){
+            item.parentNode.remove()
+            adBd();
+        })
+    })
+}
+
+function checkToDo(){ // не стабильна не сохраняет данные в локал
+    let li = document.querySelectorAll('.list-item');  
+    li.forEach((item)=> {
+        item.addEventListener('click', function(){
+            item.classList.toggle('checked');
+            adBd();
+        })
+    })
+}
+
+function adBd(){
+    pernt = blocks[ths].getAttribute('data-parent');
+    // console.log(ths.parentNode)
+    menuLists.forEach((item)=> {
+        // console.log(item)
+        if(item.classList.contains('display')){
+            localStorage.setItem(pernt, item.innerHTML);   
+        }
+    })
+
+}
+function getBd(){
+
+    let parentElement = blocks[ths].getAttribute('data-parent');    
+if(localStorage.getItem(parentElement)){
+    if(localStorage.getItem(parentElement).length == 0){
+        localStorage.removeItem(parentElement)
+    }
+}
+blocks[ths].children[2].innerHTML = localStorage.getItem(parentElement); 
+    removeTodo()
+    checkToDo()
+
+// removeTodo()
+// checkToDo()
+}
+

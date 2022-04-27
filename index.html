@@ -15,8 +15,8 @@
       <!-- <h2 class="timer__title">just do it </h2> -->
       <span class="timer__count">00 00 00 00</span>
       <form>
-        <input class="timer__inp" type="text">
-        <button class="timer__subm">subm</button>
+        <input class="timer__inp" type="date">
+        <!-- <button class="timer__subm">subm</button> -->
       </form>
     </div>
     <div class="screen">
@@ -42,6 +42,11 @@
             <span class="tab__text">English words</span>
             <span class="tab__close"></span>
           </div>
+          <div class='tab'>
+            <img class="tab__favi" src="img/usa.png" alt="timer">
+            <span class="tab__text">Favlinks</span>
+            <span class="tab__close"></span>
+          </div>
         </div>
         <div class="screen__header-dots header-dots">
           <div class="header-dots__ellipsis"></div>
@@ -50,24 +55,43 @@
         </div>
       </div>
       <div class="screen__body">
-
-
-
         <div class='panels'>
-          <div class='panel panel_active'>Panel 1</div>
-          <div class='panel'>Panel 2</div>
-          <div class='panel'>Panel 3</div>
+          <div class='panel panel_active'>
+            <div class="form-wrp">
+              <input type="date" id="last-date">
+              <input type="date" id="now-date">
+              <button class="date__btn">subm</button>
+              <div class="out"></div>
+            </div>
+          </div>
+          <div class='panel'>
+            <div class="block" data-parent="todo">
+              <h2 class="title-todo">Just do it Now</h2>
+              <input type="text" class="inp" placeholder="wrote text and press enter">
+              <ul class="menu-list"></ul>
+          </div>
+          </div>
+          <div class='panel'>
+            <div class="block" data-parent="engl">
+              <h2 class="title-todo">Just do  Now</h2>
+              <input type="text" class="inp" placeholder="write text and press enter">
+              <ul class="menu-list"></ul>
+          </div>
+          </div>
+          <div class='panel'>
+            <div class="block" data-parent="favLink">
+              <h2 class="title-todo">Just do it Now</h2>
+              <input type="text" class="inp" placeholder="write text and press enter">
+              <ul class="menu-list"></ul>
+          </div>
+          </div>
+
         </div>
 
 
 
 
-        <div class="form-wrp">
-          <input type="date" id="last-date">
-          <input type="date" id="now-date">
-          <button class="date__btn">subm</button>
-          <div class="out"></div>
-        </div>
+
 
       </div>
 
@@ -77,7 +101,7 @@
 
     </div>
   </div>
-  <script src="axios.min.js"></script>
+  <!-- <script src="axios.min.js"></script> -->
   <script src="index.js"></script>
 </body>
 
