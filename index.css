@@ -5,7 +5,47 @@
   padding: 0;
   box-sizing: border-box;
 }
+li {
+  list-style: none;
 
+}
+.display {
+  display: block!important;
+}
+.menu-list {
+  display: none;
+}
+.list-item {
+  padding: 10px 20px;
+  position: relative;
+  cursor: pointer;
+  transition: all .15s ease-in 0s;
+}
+.list-item span {
+  transition: all .15s ease-in 0s;
+}
+.list-item:hover span::before {
+  transition: all .15s ease-in 0s;
+}
+.list-item:hover span::before {
+  transition: all .15s ease-in 0s;
+  transform: rotate(180deg);
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  left: -6px;
+  top: 8px;
+  content: ' ';
+  background-image: url('img/trash-svgrepo-com.svg');
+  /* background-size: 20px 20px; */
+  background-repeat: no-repeat;
+  height: 20px;
+  width: 20px;
+}
+.checked{
+  color: rgba(187, 187, 187, 0.769);
+  text-decoration: line-through;
+}
 /* font-family: 'Montserrat', sans-serif; */
 body {
   font-family: 'Montserrat', sans-serif;
