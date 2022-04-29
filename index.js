@@ -22,16 +22,18 @@
 //   console.log(response.config);
 // });
 
+
+
 var c = document.getElementById("c");
 var ctx = c.getContext("2d");
 var cH;
 var cW;
-var bgColor = "#FF6138";
+var bgColor = "#ea1d6f";
 var animations = [];
 var circles = [];
 
 var colorPicker = (function() {
-  var colors = ["#FF6138", "#FFBE53", "#2980B9", "#282741"];
+  var colors = ["#ea1d6f", "#FFBE53", "#2980B9", "#282741"];
   var index = 0;
   function next() {
     index = index++ < colors.length-1 ? index : 0;
@@ -231,7 +233,7 @@ function fauxClick(x, y) {
   document.dispatchEvent(fauxClick);
 }
 
-
+// bg end
 
 const title = {
   'h1': 'Last Day',
@@ -252,18 +254,61 @@ function declensionNum(num, words) {
 
 
 
-// fetch('https://fetch.reddev.com.ua/city.list.json')
-// .then((response) => {
-//   return response.json();
-// })
-// .then((data) => {
-//   console.log(data);
-// });
+// timer 
+
+let timerInp = document.querySelector('.timer__inp');
+const outTimer = document.querySelector('.timer__count');
+//  timerId1 = null;
+timerInp.addEventListener('input', ()=> {
+  let timerId1 = setInterval(countTimer, 1000);
+})
 
 
+function countTimer() {
+  let milsTime = Math.abs(new Date() - new Date(timerInp.value));
+  console.log(milsTime)
+  if (milsTime <= 0) clearInterval(timerId1);
+  let year = milsTime > 0 ? Math.round(milsTime / 1000 / 60 / 60 / 24 / 365) : 0;
+  let month = milsTime > 0 ? Math.round(milsTime / 1000 / 60 / 60 / 24 / 30) : 0;
+
+  let week = milsTime > 0 ? (milsTime / 1000 / 60 / 60 / 24 / 7) : 0;
+  let weekend = milsTime > 0 ? (milsTime / 1000 / 60 / 60 / 24  / 7 * 2 ) : 0;
+  let workDay = milsTime > 0 ? (milsTime  / 1000 / 60 / 60 / 24 / 7 * 5 ) : 0;
+  
+  let days = milsTime > 0 ? Math.round(milsTime / 1000 / 60 / 60 / 24) : 0;
+  let hours = milsTime > 0 ? Math.floor(milsTime / 1000 / 60 / 60) % 24 : 0;
+  let minutes = milsTime > 0 ? Math.floor(milsTime / 1000 / 60) % 60 : 0;
+  let seconds = milsTime > 0 ? Math.floor(milsTime / 1000) % 60 : 0;
+
+outTimer.textContent = 
+`
+ ${days} ${num_word(days, ['день', 'дня', 'дней'])}
+ ${hours} ${num_word(hours, ['час', 'часа', 'часов'])}
+ ${minutes} ${num_word(minutes, ['минута', 'минуты', 'минут'])}
+ ${seconds} ${num_word(seconds, ['секунда', 'секунды', 'секунд'])}
+`
 
 
+  console.log(days)
+  console.log(week.toFixed(1))
+  console.log(workDay.toFixed())
+  console.log(weekend.toFixed())
+  console.log(hours.toFixed())
+  console.log(minutes.toFixed())
+  console.log(seconds.toFixed())
+}
 
+
+// countTimer();
+
+/**
+ * countTimer();
+   timerId1 = setInterval(countTimer, 1000);
+ * 
+ */
+  //  2022, 02, 14
+
+// timer end
 
 
 
@@ -282,7 +327,7 @@ function num_word(value, words) {
 }
 // console.log(num_word(34, ['день', 'дня', 'дней']));
 
-let deadlineDate = new Date(2022, 02, 14)
+// let deadlineDate = new Date(2022, 02, 14)
 
 
 // function countdownTimer() {
@@ -303,39 +348,7 @@ let deadlineDate = new Date(2022, 02, 14)
 //   $minutes.dataset.title = declensionNum(minutes, ['минута', 'минуты', 'минут']);
 //   $seconds.dataset.title = declensionNum(seconds, ['секунда', 'секунды', 'секунд']);
 // }
-const timerId1 = null;
-const constDay = 86400000;
-function countTimer() {
-  let milsTime = new Date() - deadlineDate;
-  console.log(milsTime)
-  if (milsTime <= 0) clearInterval(timerId1);
-  let year = milsTime > 0 ? Math.round(milsTime / 1000 / 60 / 60 / 24 / 365) : 0;
-  let month = milsTime > 0 ? Math.round(milsTime / 1000 / 60 / 60 / 24 / 30) : 0;
 
-  let week = milsTime > 0 ? (milsTime / 1000 / 60 / 60 / 24 / 7) : 0;
-  let weekend = milsTime > 0 ? (milsTime / 1000 / 60 / 60 / 24  / 7 * 2 ) : 0;
-  let workDay = milsTime > 0 ? (milsTime  / 1000 / 60 / 60 / 24 / 7 * 5 ) : 0;
-  
-  let days = milsTime > 0 ? Math.round(milsTime / 1000 / 60 / 60 / 24) : 0;
-  let hours = milsTime > 0 ? Math.floor(milsTime / 1000 / 60 / 60) % 24 : 0;
-  let minutes = milsTime > 0 ? Math.floor(milsTime / 1000 / 60) % 60 : 0;
-  let seconds = milsTime > 0 ? Math.floor(milsTime / 1000) % 60 : 0;
-
-
-
-
-  console.log(days)
-  console.log(week.toFixed(1))
-  console.log(workDay.toFixed())
-  console.log(weekend.toFixed())
-}
-// countTimer()
-/**
- * countTimer();
-   timerId1 = setInterval(countTimer, 1000);
- * 
- */
-  //  2022, 02, 14
   
    let currentDay = new Date();
  // !!! год-месяц-день !!!
@@ -373,7 +386,7 @@ let dates;
 
     }
 let sty = '0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-console.log(Math.random() * sty.length)
+// console.log(Math.random() * sty.length)
     document.querySelector('.date__btn').addEventListener('click', checkDay);
 
 
