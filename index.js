@@ -60,8 +60,8 @@ function calcPageFillRadius(x, y) {
 }
 
 function addClickListeners() {
-  document.addEventListener("touchstart", handleEvent);
-  document.addEventListener("mousedown", handleEvent);
+  document.querySelector('#c').addEventListener("touchstart", handleEvent);
+  document.querySelector('#c').addEventListener("mousedown", handleEvent);
 };
 
 function handleEvent(e) {
@@ -113,12 +113,12 @@ function handleEvent(e) {
     });
     
     var particles = [];
-    for (var i=0; i<32; i++) {
+    for (var i=0; i<52; i++) {
       var particle = new Circle({
         x: e.pageX,
         y: e.pageY,
         fill: currentColor,
-        r: anime.random(24, 48)
+        r: anime.random(124, 48)
       })
       particles.push(particle);
     }
