@@ -9,6 +9,14 @@ li {
   list-style: none;
 
 }
+
+canvas {
+  display: block;
+  width: 98.9vw;
+  height: 100vh;
+}
+
+
 .display {
   display: block!important;
 }
@@ -49,9 +57,9 @@ li {
 /* font-family: 'Montserrat', sans-serif; */
 body {
   font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(to right, #ea1d6f 0%, #eb466b 100%);
+  /* background: linear-gradient(to right, #ea1d6f 0%, #eb466b 100%);
   display: flex;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
 
 input {
@@ -89,6 +97,9 @@ button {
 }
 
 .last-wrp {
+    position: absolute;
+    top: 0px;
+    left: 10%;
   display: flex;
   padding: 10px;
   /* flex: 0 1 700px; */
