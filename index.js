@@ -213,12 +213,17 @@ function switchBtn(item, index){
     });
     menuLists.forEach((ul)=> {
         ul.classList.remove('display');
-    });
-    blocks[index-1].children[1].classList.add('display');
-    blocks[index-1].children[2].classList.add('display');
-    ths = index-1;
-    getBd();
-    closeTabs();
+    })
+    if(blocks[index-1] == undefined){
+      return false
+    } else {
+      blocks[index-1].children[1].classList.add('display');
+      blocks[index-1].children[2].classList.add('display');
+      ths = index-1;
+      getBd();
+      closeTabs();
+    }
+
 }
 function closeTabs(){
     document.addEventListener('keydown', function(e) {
